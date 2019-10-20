@@ -1,11 +1,15 @@
 * // avatar/totemqui change selon les paramètres rentrés
 couleur fond
 
-bouche
-yeux
-accessoire
+Il reste :
+forme et couleur des yeux
 
-jour de naissance
-heure de naissance
-taille
-prénom
+la bouche
+
+les accessoirs (implémenté oreilles de lapin svp)
+
+les cheveux
+
+
+
+Le code est écrit de manière semblable à celle de 42

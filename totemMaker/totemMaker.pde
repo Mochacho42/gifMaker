@@ -5,13 +5,13 @@ void setup()
 
 void draw()
 {
-  String jour = "samedi"; // jour de naissance
-  int heure = 2200;
-  String name = "askeza";
-  int size = 166;
-  int famille = 2;
-  int departement = 75;
-  int pointure = 43;
+  String jour = "jeudi"; // jour de naissance
+  int heure = 140;
+  String name = "jacqueline";
+  int size = 155;
+  int famille = 3;
+  int departement = 92;
+  int pointure = 39;
   
   // définition couleur backgroung
   if (size < 160)
@@ -21,6 +21,32 @@ void draw()
   else 
     background(size-100, size, heure/9);
   
+  // couleur visage
+  if (departement <= 20 && pointure < 40)
+   fill(85, 0, 0);
+  else if (departement <= 20 && pointure >= 40)
+    fill(128, 21, 21);
+  else if (departement > 20 && departement <= 40 && pointure < 40)
+    fill(255, 116, 1);
+  else if (departement > 20 && departement <= 40 && pointure >= 40)
+    fill(235, 128, 40);
+  else if (departement > 40 && departement <= 60 && pointure < 40)
+    fill(153, 26, 153);
+  else if (departement > 40 && departement <= 60 && pointure >= 40)
+    fill(213, 1, 213);
+  else if (departement > 60 && departement <= 74 && pointure < 40)
+    fill(19, 3, 45);
+  else if (departement > 60 && departement <= 74 && pointure >= 40)
+    fill(41, 16, 80);
+  else if (departement > 74 && departement <= 96 && pointure < 40)
+    fill(6, 98, 194);
+  else if (departement > 74 && departement <= 96 && pointure >= 40)
+    fill(43, 76, 111);
+  else if (departement >= 971 && pointure > 40)
+    fill(86, 198, 13);
+  else if (departement >= 971 && pointure <=  40)
+    fill(76, 100, 61);
+    
   // formes visage
   if (name.length() < 6)
   {
@@ -41,12 +67,74 @@ void draw()
     rect(200, 250, 250, 250);
   }
   
-  // couleur visage
+  // nez
+  if (famille <= 2)
+  {
+    rectMode(CENTER);
+    rect(200, 250, 20, 50);
+  }
+  else if (famille == 3 || famille == 4)
+    ellipse(200, 250, 50, 30);
+  else if (famille == 5)
+    triangle(200, 285, 180, 250, 220, 250);
+  else
+  {
+    rectMode(CENTER);
+    rect(200, 250, 40, 28);
+  }
     
-  // yeux + nez
-  
+  // yeux gauche et droite
+  if (departement <=15)
+  {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }
+  else if (departement <= 30)
+    {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }
+  else if (departement <= 45)
+  {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }
+  else if (departement <= 74)
+  {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }  
+  else if (departement <= 95)
+  {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }  
+  else if (departement >= 971 && departement < 977)
+  {
+    fill(0);
+    ellipse(150, 220, 60, 60);
+    
+    fill(0);
+    ellipse(250, 220, 60, 60);
+  }  
   
   // bouches
+  
   
   // accessoires
 }
