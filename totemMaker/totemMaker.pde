@@ -107,13 +107,10 @@ if(("monday").equals(birthday))
     vertex(50, 175);
     endShape(CLOSE);
   }
-  if (birthday == "tuesday")
-    ellipse(200, 250, 250, 250);
-  else
-  {
-    rectMode(CENTER);
-    rect(200, 250, 250, 250);
-  }
+  if (birthday == "tuesday"){
+    ellipse(200, 250, 250, 250);}
+
+
   
 /*  
   // nez
