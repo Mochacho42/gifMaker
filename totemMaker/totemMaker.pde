@@ -5,13 +5,9 @@ void setup()
 
 void draw()
 {
-  String jour = "jeudi"; // jour de naissance
-  int heure = 140;
-  String name = "jacqueline";
-  int size = 155;
-  int famille = 3;
-  int departement = 92;
-  int pointure = 39;
+  String birthday, birthtime, name, size, familymember, department, shoesize;
+  
+  //convert birthtime, size, familymember, department, shoesize;
   
   // définition couleur backgroung
   if (size < 160)
