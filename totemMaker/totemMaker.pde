@@ -4,7 +4,7 @@ ControlP5 cp5;
 
 
 String birthday, birthtime, name, size, familymember, department, shoesize;
-
+int r, g, b;
 
 void setup()
 {
@@ -12,36 +12,61 @@ void setup()
   
   cp5 = new ControlP5(this);
   
-  cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false);
   cp5.addTextfield("birthday").setPosition(0,40).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("birthtime").setPosition(0,80).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("size").setPosition(0,120).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("familymember").setPosition(0,160).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("department").setPosition(0,200).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("shoesize").setPosition(0,240).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("birthtime").setPosition(0,80).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("size").setPosition(0,120).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("familymember").setPosition(0,160).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("department").setPosition(0,200).setSize(100,20).setAutoClear(false);
+//  cp5.addTextfield("shoesize").setPosition(0,240).setSize(100,20).setAutoClear(false);
   
   
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
+  
+
  
+}
+
+
+void Submit() {
+  
+
+  birthday=cp5.get(Textfield.class, "birthday").getText();
+  birthday = new String(birthday);
+  println(birthday.equals("monday"));
+//  println(birthday);
+//  println(birthday.length);
+//  println(birthday == "monday");
+//  name=cp5.get(Textfield.class, "name").getText();
+/*  birthtime=cp5.get(Textfield.class, "birthtime").getText();
+  size=cp5.get(Textfield.class, "size").getText();
+  familymember=cp5.get(Textfield.class, "familymember").getText();
+  department=cp5.get(Textfield.class, "department").getText();
+  shoesize=cp5.get(Textfield.class, "shoesize").getText();
+  print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
+*/
 }
 
 void draw()
 {
   
-   background(150);
+
   
-  String birthday, birthtime, name, size, familymember, department, shoesize;
-  
+  background(150);
   //convert birthtime, size, familymember, department, shoesize;
   
-  // définition couleur backgroung
-  if (size < 160)
-    background(size, 255-size, size+80);
-  else if (size >= 160 && size <170)
-    background(heure/10, 255-birthtime/10, birthtime/18);
-  else 
-    background(size-100, size, birthtime/9);
+
   
+  // définition couleur background rgb(department, size, shoesize)
+  /*
+  r = Integer.parseInt(department);
+  r = 40;
+  r = (r/101) * 255;
+  print(r);
+  background(r, r, r);
+  
+  */
+  /*
   // couleur visage
   if (department <= 20 && shoesize < 40)
    fill(85, 0, 0);
@@ -67,10 +92,12 @@ void draw()
     fill(86, 198, 13);
   else if (department >= 971 && shoesize <=  40)
     fill(76, 100, 61);
-    
+    */
   // formes visage
-  if (name.length() < 6)
+  //print(birthday.equals("monday"));
+if(("monday").equals(birthday))
   {
+    
     beginShape();
     vertex(200, 100);
     vertex(350, 175);
@@ -80,7 +107,7 @@ void draw()
     vertex(50, 175);
     endShape(CLOSE);
   }
-  else if (name.length() >= 6 && name.length() <= 7)
+  if (birthday == "tuesday")
     ellipse(200, 250, 250, 250);
   else
   {
@@ -88,6 +115,7 @@ void draw()
     rect(200, 250, 250, 250);
   }
   
+/*  
   // nez
   if (familymember <= 2)
   {
@@ -157,21 +185,5 @@ void draw()
   // bouches
   
   
-  // accessoires
-}
-
-
-
-void Submit() {
-  println();
-  birthday=cp5.get(Textfield.class, "name").getText();
-  name=cp5.get(Textfield.class, "birthday").getText();
-  birthtime=cp5.get(Textfield.class, "birthtime").getText();
-  size=cp5.get(Textfield.class, "size").getText();
-  familymember=cp5.get(Textfield.class, "familymember").getText();
-  department=cp5.get(Textfield.class, "department").getText();
-  shoesize=cp5.get(Textfield.class, "shoesize").getText();
-  
-  print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
-
+  // accessoires*/
 }
