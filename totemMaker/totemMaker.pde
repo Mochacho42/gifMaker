@@ -115,154 +115,56 @@ void draw()
     rect(200, 138, 250, 433);//rectangle hauteur>largeur
   }
 
-//eyes
-  
-  //first type
-  if((Months[0]).equals(month)){
-    if(DaysOfTheWeek[3].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    circle(200, 200, 100);
-    circle(200, 200, 5);
-    circle(450, 200, 100);
-    circle(450, 200, 5);       
-    }
-    else {
-    circle(125, 200, 100);
-    circle(125, 200, 5);
-    circle(525, 200, 100);
-    circle(525, 200, 5);      
-    }    
+//eyes /*
+
+if(month != null && birthday != null) {
+  switch (month) {
+    case "january" : 
+    case "february":
+    case "march":
+      switch (birthday) {
+        case "tuesday":
+        case "wednesday":
+        case "saturday":
+          circle(125, 200, 100);
+          circle(125, 200, 5);
+          circle(525, 200, 100);
+          circle(525, 200, 5); 
+          break;
+        case "thursday":
+          circle(250, 200, 100);
+          circle(250, 200, 5);
+          circle(400, 200, 100);
+          circle(400, 200, 5); 
+          break;
+        case "friday":
+          circle(250, 200, 100);
+          circle(250, 200, 5);
+          circle(400, 200, 100);
+          circle(400, 200, 5);  
+          break;
+        case "sunday":
+          circle(200, 200, 100);
+          circle(200, 200, 5);
+          circle(450, 200, 100);
+          circle(450, 200, 5);  
+          break;
+        default:
+          print("Eye Error");        
+      }
+      break;
+      case "april":
+      case "may":
+      case "juny":
+        switch (birthday)
+      default:
+        print("Month Error");     
   }
-  if((Months[1]).equals(month)){
-    if(DaysOfTheWeek[3].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    circle(200, 200, 100);
-    circle(200, 200, 5);
-    circle(450, 200, 100);
-    circle(450, 200, 5);       
-    }
-    else {
-    circle(125, 200, 100);
-    circle(125, 200, 5);
-    circle(525, 200, 100);
-    circle(525, 200, 5);      
-    }    
-  }
-  if((Months[2]).equals(month)){
-    if(DaysOfTheWeek[3].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    circle(250, 200, 100);
-    circle(250, 200, 5);
-    circle(400, 200, 100);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    circle(200, 200, 100);
-    circle(200, 200, 5);
-    circle(450, 200, 100);
-    circle(450, 200, 5);       
-    }
-    else {
-    circle(125, 200, 100);
-    circle(125, 200, 5);
-    circle(525, 200, 100);
-    circle(525, 200, 5);      
-    }    
-  }
+}
+/*
   
   //second type
-  if((Months[3]).equals(month)){
-    if(DaysOfTheWeek[2].equals(birthday)){
-    ellipse(200, 250, 100, 50);
-    circle(200, 250, 5);
-    ellipse(450, 250, 100, 50);
-    circle(450, 250, 5);       
-    }
-    else if(DaysOfTheWeek[3].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    ellipse(200, 200, 100, 50);
-    circle(200, 200, 5);
-    ellipse(450, 200, 100, 50);
-    circle(450, 200, 5);       
-    }
-    else {
-    ellipse(125, 200, 100, 50);
-    circle(125, 200, 5);
-    ellipse(525, 200, 100, 50);
-    circle(525, 200, 5);      
-    }      
-  }
-  if((Months[4]).equals(month)){
-    if(DaysOfTheWeek[2].equals(birthday)){
-    ellipse(200, 250, 100, 50);
-    circle(200, 250, 5);
-    ellipse(450, 250, 100, 50);
-    circle(450, 250, 5);       
-    }
-    else if(DaysOfTheWeek[3].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    ellipse(200, 200, 100, 50);
-    circle(200, 200, 5);
-    ellipse(450, 200, 100, 50);
-    circle(450, 200, 5);       
-    }
-    else {
-    ellipse(125, 200, 100, 50);
-    circle(125, 200, 5);
-    ellipse(525, 200, 100, 50);
-    circle(525, 200, 5);      
-    }    
-  }
-  if((Months[5]).equals(month)){
+  if((Months[3]).equals(month) || (Months[4]).equals(month) || (Months[5]).equals(month)){
     if(DaysOfTheWeek[2].equals(birthday)){
     ellipse(200, 250, 100, 50);
     circle(200, 250, 5);
