@@ -3,18 +3,19 @@ import controlP5.*;
 ControlP5 cp5;
 
 
-String birthday, birthtime, name, size, familymember, department, shoesize;
+String birthday, month, name, size, familymember, department, shoesize;
 int r, g, b;
+int lengthname;
 
 void setup()
 {
-  size(700, 700);
+  size(650, 650);
   
   cp5 = new ControlP5(this);
   
-//  cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false);
-  cp5.addTextfield("birthday").setPosition(0,40).setSize(100,20).setAutoClear(false);
-//  cp5.addTextfield("birthtime").setPosition(0,80).setSize(100,20).setAutoClear(false);
+  cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false); //hair
+  cp5.addTextfield("birthday").setPosition(0,40).setSize(100,20).setAutoClear(false); //face
+  cp5.addTextfield("month").setPosition(0,80).setSize(100,20).setAutoClear(false);  //eyes
 //  cp5.addTextfield("size").setPosition(0,120).setSize(100,20).setAutoClear(false);
 //  cp5.addTextfield("familymember").setPosition(0,160).setSize(100,20).setAutoClear(false);
 //  cp5.addTextfield("department").setPosition(0,200).setSize(100,20).setAutoClear(false);
@@ -30,72 +31,54 @@ void setup()
 
 void Submit() {
   
-
+  name=cp5.get(Textfield.class, "name").getText();
+  name = new String(name);
+  
   birthday=cp5.get(Textfield.class, "birthday").getText();
   birthday = new String(birthday);
-  println(birthday.equals("monday"));
-//  println(birthday);
-//  println(birthday.length);
-//  println(birthday == "monday");
-//  name=cp5.get(Textfield.class, "name").getText();
-/*  birthtime=cp5.get(Textfield.class, "birthtime").getText();
+  
+  month=cp5.get(Textfield.class, "month").getText();
+  month = new String(month);
+  /*
   size=cp5.get(Textfield.class, "size").getText();
   familymember=cp5.get(Textfield.class, "familymember").getText();
   department=cp5.get(Textfield.class, "department").getText();
   shoesize=cp5.get(Textfield.class, "shoesize").getText();
   print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
 */
+  lengthname = name.length();
 }
+
+String[] DaysOfTheWeek = {"monday", "tuesday", "wednesday", "thursday","friday", "saturday", "sunday"};
+String[] Months = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
 
 void draw()
 {
-  
 
   
   background(150);
-  //convert birthtime, size, familymember, department, shoesize;
   
+  //convert month, size, familymember, department, shoesize;
+  
+//hair
 
+  if(1 <= lengthname && lengthname <= 3) {
+    triangle(100, 67, 550, 67, 325, 400);//triangle équilaterale °180
+  }
+  if(4 <= lengthname && lengthname <= 6) {
+    triangle(150, 400, 500, 400, 325, 67);
+  }  
+  if(7 <= lengthname && lengthname <= 9) {
+    rect(200, 50, 250, 300);
+  }
+  if(10 <= lengthname) {
+    rect(150, 138, 350, 250);
+  }
+
+
+// formes visage
   
-  // définition couleur background rgb(department, size, shoesize)
-  /*
-  r = Integer.parseInt(department);
-  r = 40;
-  r = (r/101) * 255;
-  print(r);
-  background(r, r, r);
-  
-  */
-  /*
-  // couleur visage
-  if (department <= 20 && shoesize < 40)
-   fill(85, 0, 0);
-  else if (department <= 20 && shoesize >= 40)
-    fill(128, 21, 21);
-  else if (department > 20 && department <= 40 && shoesize < 40)
-    fill(255, 116, 1);
-  else if (department > 20 && department <= 40 && shoesize >= 40)
-    fill(235, 128, 40);
-  else if (department > 40 && department <= 60 && shoesize < 40)
-    fill(153, 26, 153);
-  else if (department > 40 && department <= 60 && shoesize >= 40)
-    fill(213, 1, 213);
-  else if (department > 60 && department <= 74 && shoesize < 40)
-    fill(19, 3, 45);
-  else if (department > 60 && department <= 74 && shoesize >= 40)
-    fill(41, 16, 80);
-  else if (department > 74 && department <= 96 && shoesize < 40)
-    fill(6, 98, 194);
-  else if (department > 74 && department <= 96 && shoesize >= 40)
-    fill(43, 76, 111);
-  else if (department >= 971 && shoesize > 40)
-    fill(86, 198, 13);
-  else if (department >= 971 && shoesize <=  40)
-    fill(76, 100, 61);
-    */
-  // formes visage
-  //print(birthday.equals("monday"));
-if(("monday").equals(birthday))
+  if((DaysOfTheWeek[0]).equals(birthday))
   {
     
     beginShape();
@@ -107,10 +90,232 @@ if(("monday").equals(birthday))
     vertex(50, 175);
     endShape(CLOSE);
   }
-  if (birthday == "tuesday"){
-    ellipse(200, 250, 250, 250);}
+  if((DaysOfTheWeek[1]).equals(birthday))
+  {
+    ellipse(325, 325, 433, 433);//cercle
+  }
+  if((DaysOfTheWeek[2]).equals(birthday))
+  {
+    ellipse(325, 325, 600, 250);//losange
+  }
+  if((DaysOfTheWeek[3]).equals(birthday))
+  {
+    ellipse(325, 325, 250, 600);//losange
+  }
+  if((DaysOfTheWeek[4]).equals(birthday))
+  {
+    triangle(100, 491, 550, 491, 325, 158); //triangle équilaterale
+  }
+  if((DaysOfTheWeek[5]).equals(birthday))
+  {
+    triangle(100, 158, 550, 158, 325, 491);//triangle équilaterale °180
+  }
+  if((DaysOfTheWeek[6]).equals(birthday))
+  {
+    rect(200, 138, 250, 433);//rectangle hauteur>largeur
+  }
 
-
+//eyes
+  
+  //first type
+  if((Months[0]).equals(month)){
+    if(DaysOfTheWeek[3].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    circle(200, 200, 100);
+    circle(200, 200, 5);
+    circle(450, 200, 100);
+    circle(450, 200, 5);       
+    }
+    else {
+    circle(125, 200, 100);
+    circle(125, 200, 5);
+    circle(525, 200, 100);
+    circle(525, 200, 5);      
+    }    
+  }
+  if((Months[1]).equals(month)){
+    if(DaysOfTheWeek[3].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    circle(200, 200, 100);
+    circle(200, 200, 5);
+    circle(450, 200, 100);
+    circle(450, 200, 5);       
+    }
+    else {
+    circle(125, 200, 100);
+    circle(125, 200, 5);
+    circle(525, 200, 100);
+    circle(525, 200, 5);      
+    }    
+  }
+  if((Months[2]).equals(month)){
+    if(DaysOfTheWeek[3].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    circle(250, 200, 100);
+    circle(250, 200, 5);
+    circle(400, 200, 100);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    circle(200, 200, 100);
+    circle(200, 200, 5);
+    circle(450, 200, 100);
+    circle(450, 200, 5);       
+    }
+    else {
+    circle(125, 200, 100);
+    circle(125, 200, 5);
+    circle(525, 200, 100);
+    circle(525, 200, 5);      
+    }    
+  }
+  
+  //second type
+  if((Months[3]).equals(month)){
+    if(DaysOfTheWeek[2].equals(birthday)){
+    ellipse(200, 250, 100, 50);
+    circle(200, 250, 5);
+    ellipse(450, 250, 100, 50);
+    circle(450, 250, 5);       
+    }
+    else if(DaysOfTheWeek[3].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    ellipse(200, 200, 100, 50);
+    circle(200, 200, 5);
+    ellipse(450, 200, 100, 50);
+    circle(450, 200, 5);       
+    }
+    else {
+    ellipse(125, 200, 100, 50);
+    circle(125, 200, 5);
+    ellipse(525, 200, 100, 50);
+    circle(525, 200, 5);      
+    }      
+  }
+  if((Months[4]).equals(month)){
+    if(DaysOfTheWeek[2].equals(birthday)){
+    ellipse(200, 250, 100, 50);
+    circle(200, 250, 5);
+    ellipse(450, 250, 100, 50);
+    circle(450, 250, 5);       
+    }
+    else if(DaysOfTheWeek[3].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    ellipse(200, 200, 100, 50);
+    circle(200, 200, 5);
+    ellipse(450, 200, 100, 50);
+    circle(450, 200, 5);       
+    }
+    else {
+    ellipse(125, 200, 100, 50);
+    circle(125, 200, 5);
+    ellipse(525, 200, 100, 50);
+    circle(525, 200, 5);      
+    }    
+  }
+  if((Months[5]).equals(month)){
+    if(DaysOfTheWeek[2].equals(birthday)){
+    ellipse(200, 250, 100, 50);
+    circle(200, 250, 5);
+    ellipse(450, 250, 100, 50);
+    circle(450, 250, 5);       
+    }
+    else if(DaysOfTheWeek[3].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[4].equals(birthday)){
+    ellipse(250, 200, 100, 50);
+    circle(250, 200, 5);
+    ellipse(400, 200, 100, 50);
+    circle(400, 200, 5);       
+    }
+    else if(DaysOfTheWeek[6].equals(birthday)){
+    ellipse(200, 200, 100, 50);
+    circle(200, 200, 5);
+    ellipse(450, 200, 100, 50);
+    circle(450, 200, 5);       
+    }
+    else {
+    ellipse(125, 200, 100, 50);
+    circle(125, 200, 5);
+    ellipse(525, 200, 100, 50);
+    circle(525, 200, 5);      
+    }      
+  }
+  
+  //third type
+  if((Months[6]).equals(month)){
+    print("t");
+  }
+  if((Months[7]).equals(month)){
+    print("t");
+  }
+  if((Months[8]).equals(month)){
+    print("t");
+  }
+  
+  //fourth type
+  if((Months[9]).equals(month)){
+    print("t");
+  }
+  if((Months[10]).equals(month)){
+    print("t");
+  }
+  if((Months[11]).equals(month)){
+    print("t");
+  }
   
 /*  
   // nez

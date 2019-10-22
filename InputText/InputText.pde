@@ -37,7 +37,7 @@ void Submit() {
   shoesize=cp5.get(Textfield.class, "shoesize").getText();
   
 //if input for an int is a string it creates an error, check later when the main work is done
-  
+  /*
   AT = Integer.parseInt(birthtime);
   if ( AT < 1 || AT > 24) {
     birthtime = "Not a valid number, the time has to be be between 1 and 24.";
@@ -53,7 +53,7 @@ void Submit() {
   AT = Integer.parseInt(shoesize);
   if ( AT < 1) {
     shoesize = "Not a valid number, your shoesize cant be less than 1";
-  }
+  }*/
   print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
 
 }
