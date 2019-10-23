@@ -11,9 +11,12 @@ void setup()
 {
   size(650, 650);
 <<<<<<< HEAD
+<<<<<<< HEAD
   table = new Table();
 
 =======
+=======
+>>>>>>> parent of ae741bc... LETS GO
   
 >>>>>>> parent of ae741bc... LETS GO
   cp5 = new ControlP5(this);
@@ -30,12 +33,15 @@ void setup()
 
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   table.addColumn("namelength");
   table.addColumn("birthday");
   table.addColumn("month");
 
 =======
+=======
+>>>>>>> parent of ae741bc... LETS GO
   
 
  
@@ -251,7 +257,11 @@ void draw()
           break;
         default:
 <<<<<<< HEAD
+<<<<<<< HEAD
 //          print("Month Error");
+=======
+          print("Month Error");   
+>>>>>>> parent of ae741bc... LETS GO
 =======
           print("Month Error");   
 >>>>>>> parent of ae741bc... LETS GO
