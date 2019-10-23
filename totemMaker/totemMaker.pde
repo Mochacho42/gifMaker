@@ -2,9 +2,8 @@ import controlP5.*;
 
 ControlP5 cp5;
 
-
+TotemHair rect, tria;
 String birthday, month, name, size, familymember, department, shoesize;
-int r, g, b;
 int lengthname;
 
 void setup()
@@ -60,16 +59,16 @@ void draw()
   //hair
 
   if(1 <= lengthname && lengthname <= 3) {
-    triangle(100, 67, 550, 67, 325, 400);//triangle équilaterale °180
+    tria = new TotemHair(100, 67, 550, 67, 325, 400);
   }
   if(4 <= lengthname && lengthname <= 6) {
-    triangle(150, 400, 500, 400, 325, 67);
+    tria = new TotemHair(150, 400, 500, 400, 325, 67);
   }  
   if(7 <= lengthname && lengthname <= 9) {
-    rect(200, 50, 250, 300);
+    rect =  new TotemHair(200, 50, 250, 300);
   }
   if(10 <= lengthname) {
-    rect(150, 138, 350, 250);
+    rect =  new TotemHair(150, 138, 350, 250);
   }
 
 
@@ -214,3 +213,29 @@ void draw()
       }
     }
   }
+  
+class TotemHair {
+  float x1, y1, x2, y2, x3, y3;
+
+  TotemHair(float x1_t, float y1_t, float x2_t, float y2_t) {
+    x1 = x1_t;
+    y1 = y1_t;
+    
+    x2 = x2_t;
+    y2 = y2_t;
+    
+    rect(x1, y1, x2, y2);
+  }  
+  TotemHair(float x1_t, float y1_t, float x2_t, float y2_t, float x3_t, float y3_t) {
+    x1 = x1_t;
+    y1 = y1_t;
+    
+    x2 = x2_t;
+    y2 = y2_t;
+   
+    x3 = x3_t;
+    y3 = y3_t;
+    
+    triangle(x1, y1, x2, y2, x3, y3);
+  }
+}
