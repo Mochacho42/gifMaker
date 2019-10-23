@@ -48,19 +48,16 @@ void Submit() {
 */
   lengthname = name.length();
 }
-
-String[] DaysOfTheWeek = {"monday", "tuesday", "wednesday", "thursday","friday", "saturday", "sunday"};
-String[] Months = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+ //<>//
 
 void draw()
 {
-
   
   background(150);
   
   //convert month, size, familymember, department, shoesize;
   
-//hair
+  //hair
 
   if(1 <= lengthname && lengthname <= 3) {
     triangle(100, 67, 550, 67, 325, 400);//triangle équilaterale °180
@@ -76,218 +73,144 @@ void draw()
   }
 
 
-// formes visage
+  // formes visage
+  if(birthday != null) {
+    switch (birthday) {
+      case "monday": //hexagone
+        beginShape();
+        vertex(325, 130);
+        vertex(495, 205);
+        vertex(495, 350);
+        vertex(325, 450);
+        vertex(155, 350);
+        vertex(155, 205);
+        endShape(CLOSE);
+        break;
+      case "tuesday": //cercle
+        ellipse(325, 325, 433, 433);
+        break;
+      case "wednesday": //losange
+        ellipse(325, 325, 600, 250);
+        break;
+      case "thursday": //losange
+        ellipse(325, 325, 250, 600);
+        break;
+      case "friday": //triangle équilaterale
+        triangle(100, 491, 550, 491, 325, 158); 
+        break;
+      case "saturday": //triangle équilaterale °180
+        triangle(100, 158, 550, 158, 325, 491);
+        break;
+      case "sunday": //rectangle hauteur>largeur
+        rect(200, 138, 250, 433);
+        break;
+      
+    }
+  }
   
-  if((DaysOfTheWeek[0]).equals(birthday))
-  {
-    
-    beginShape();
-    vertex(200, 100);
-    vertex(350, 175);
-    vertex(350, 300);
-    vertex(200, 400);
-    vertex(50, 300);
-    vertex(50, 175);
-    endShape(CLOSE);
-  }
-  if((DaysOfTheWeek[1]).equals(birthday))
-  {
-    ellipse(325, 325, 433, 433);//cercle
-  }
-  if((DaysOfTheWeek[2]).equals(birthday))
-  {
-    ellipse(325, 325, 600, 250);//losange
-  }
-  if((DaysOfTheWeek[3]).equals(birthday))
-  {
-    ellipse(325, 325, 250, 600);//losange
-  }
-  if((DaysOfTheWeek[4]).equals(birthday))
-  {
-    triangle(100, 491, 550, 491, 325, 158); //triangle équilaterale
-  }
-  if((DaysOfTheWeek[5]).equals(birthday))
-  {
-    triangle(100, 158, 550, 158, 325, 491);//triangle équilaterale °180
-  }
-  if((DaysOfTheWeek[6]).equals(birthday))
-  {
-    rect(200, 138, 250, 433);//rectangle hauteur>largeur
-  }
-
-//eyes /*
-
-if(month != null && birthday != null) {
-  switch (month) {
-    case "january" : 
-    case "february":
-    case "march":
-      switch (birthday) {
-        case "tuesday":
-        case "wednesday":
-        case "saturday":
-          circle(125, 200, 100);
-          circle(125, 200, 5);
-          circle(525, 200, 100);
-          circle(525, 200, 5); 
-          break;
-        case "thursday":
-          circle(250, 200, 100);
-          circle(250, 200, 5);
-          circle(400, 200, 100);
-          circle(400, 200, 5); 
-          break;
-        case "friday":
-          circle(250, 200, 100);
-          circle(250, 200, 5);
-          circle(400, 200, 100);
-          circle(400, 200, 5);  
-          break;
-        case "sunday":
-          circle(200, 200, 100);
-          circle(200, 200, 5);
-          circle(450, 200, 100);
-          circle(450, 200, 5);  
+  //eyes 
+  
+  if(month != null && birthday != null) {
+    switch (month) {
+      case "january" : 
+      case "february":
+      case "march":
+        switch (birthday) {
+          case "monday":
+          case "tuesday":
+          case "wednesday":
+          case "saturday":
+            circle(125, 200, 100);
+            circle(125, 200, 5);
+            circle(525, 200, 100);
+            circle(525, 200, 5); 
+            break;
+          case "thursday":
+            circle(250, 200, 100);
+            circle(250, 200, 5);
+            circle(400, 200, 100);
+            circle(400, 200, 5); 
+            break;
+          case "friday":
+            circle(250, 200, 100);
+            circle(250, 200, 5);
+            circle(400, 200, 100);
+            circle(400, 200, 5);  
+            break;
+          case "sunday":
+            circle(200, 200, 100);
+            circle(200, 200, 5);
+            circle(450, 200, 100);
+            circle(450, 200, 5);  
+            break;
+          default:
+            print("Eye Error");        
+        }
+        break;
+        case "april":
+        case "may":
+        case "juny":
+          switch (birthday) { 
+            case "monday":
+            case "wednesday":
+              ellipse(200, 250, 100, 50);
+              circle(200, 250, 5);
+              ellipse(450, 250, 100, 50);
+              circle(450, 250, 5);
+              break;
+            case "thursday":
+              ellipse(250, 200, 100, 50);
+              circle(250, 200, 5);
+              ellipse(400, 200, 100, 50);
+              circle(400, 200, 5); 
+              break;
+            case "friday":
+              ellipse(250, 200, 100, 50);
+              circle(250, 200, 5);
+              ellipse(400, 200, 100, 50);
+              circle(400, 200, 5);  
+              break;
+            case "sunday":
+              ellipse(200, 200, 100, 50);
+              circle(200, 200, 5);
+              ellipse(450, 200, 100, 50);
+              circle(450, 200, 5); 
+              break;
+            default:
+              ellipse(125, 200, 100, 50);
+              circle(125, 200, 5);
+              ellipse(525, 200, 100, 50);
+              circle(525, 200, 5); 
+          }
           break;
         default:
-          print("Eye Error");        
+          print("Month Error");   
+      case "july":
+      case "august":
+      case "september":
+        switch (birthday) {
+          case "monday":
+          case "tuesday":
+          case "wednesday":
+            curve(175, 500, 185, 260, 265, 260, 275, 300);
+            circle(205, 250, 10);
+            curve(385, 500, 395, 260, 475, 260, 485, 300);
+            circle(415, 250, 10);
+            break;
+          default:
+            curve(175, 500, 185, 260, 265, 260, 275, 300);
+            circle(205, 250, 10);
+            curve(385, 500, 395, 260, 475, 260, 485, 300);
+            circle(415, 250, 10);
+        }
+      case "october":
+      case "november":
+      case "december":
+        switch (birthday) {
+          default:
+           rect(100, 50, 100, 20);
+           rect(400, 50, 100, 20);
+        }
       }
-      break;
-      case "april":
-      case "may":
-      case "juny":
-        switch (birthday)
-      default:
-        print("Month Error");     
-  }
-}
-/*
-  
-  //second type
-  if((Months[3]).equals(month) || (Months[4]).equals(month) || (Months[5]).equals(month)){
-    if(DaysOfTheWeek[2].equals(birthday)){
-    ellipse(200, 250, 100, 50);
-    circle(200, 250, 5);
-    ellipse(450, 250, 100, 50);
-    circle(450, 250, 5);       
     }
-    else if(DaysOfTheWeek[3].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[4].equals(birthday)){
-    ellipse(250, 200, 100, 50);
-    circle(250, 200, 5);
-    ellipse(400, 200, 100, 50);
-    circle(400, 200, 5);       
-    }
-    else if(DaysOfTheWeek[6].equals(birthday)){
-    ellipse(200, 200, 100, 50);
-    circle(200, 200, 5);
-    ellipse(450, 200, 100, 50);
-    circle(450, 200, 5);       
-    }
-    else {
-    ellipse(125, 200, 100, 50);
-    circle(125, 200, 5);
-    ellipse(525, 200, 100, 50);
-    circle(525, 200, 5);      
-    }      
   }
-  
-  //third type
-  if((Months[6]).equals(month)){
-    print("t");
-  }
-  if((Months[7]).equals(month)){
-    print("t");
-  }
-  if((Months[8]).equals(month)){
-    print("t");
-  }
-  
-  //fourth type
-  if((Months[9]).equals(month)){
-    print("t");
-  }
-  if((Months[10]).equals(month)){
-    print("t");
-  }
-  if((Months[11]).equals(month)){
-    print("t");
-  }
-  
-/*  
-  // nez
-  if (familymember <= 2)
-  {
-    rectMode(CENTER);
-    rect(200, 250, 20, 50);
-  }
-  else if (familymember == 3 || familymember == 4)
-    ellipse(200, 250, 50, 30);
-  else if (familymember == 5)
-    triangle(200, 285, 180, 250, 220, 250);
-  else
-  {
-    rectMode(CENTER);
-    rect(200, 250, 40, 28);
-  }
-    
-  // yeux gauche et droite
-  if (department <=15)
-  {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }
-  else if (department <= 30)
-    {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }
-  else if (department <= 45)
-  {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }
-  else if (department <= 74)
-  {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }  
-  else if (department <= 95)
-  {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }  
-  else if (department >= 971 && department < 977)
-  {
-    fill(0);
-    ellipse(150, 220, 60, 60);
-    
-    fill(0);
-    ellipse(250, 220, 60, 60);
-  }  
-  
-  // bouches
-  
-  
-  // accessoires*/
-}
