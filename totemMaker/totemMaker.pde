@@ -3,8 +3,6 @@ import controlP5.*;
 ControlP5 cp5;
 
 TotemHair rect, tria;
-
-Table table;
 String birthday, month, name, size, familymember, department, shoesize;
 int r, g, b;
 int lengthname;
@@ -12,8 +10,12 @@ int lengthname;
 void setup()
 {
   size(650, 650);
+<<<<<<< HEAD
   table = new Table();
 
+=======
+  
+>>>>>>> parent of ae741bc... LETS GO
   cp5 = new ControlP5(this);
 
   cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false); //hair
@@ -27,11 +29,17 @@ void setup()
 
 
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
+<<<<<<< HEAD
 
   table.addColumn("namelength");
   table.addColumn("birthday");
   table.addColumn("month");
 
+=======
+  
+
+ 
+>>>>>>> parent of ae741bc... LETS GO
 }
 
 
@@ -57,11 +65,6 @@ void Submit() {
   print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
 */
   lengthname = name.length();
-  TableRow newRow = table.addRow();
-  newRow.setInt("namelength", lengthname);
-  newRow.setString("birthday", birthday);
-  newRow.setString("month", month);
-  saveTable(table, "new.csv");
 }
 
 
@@ -247,7 +250,11 @@ void draw()
           }
           break;
         default:
+<<<<<<< HEAD
 //          print("Month Error");
+=======
+          print("Month Error");   
+>>>>>>> parent of ae741bc... LETS GO
       case "july":
       case "august":
       case "september":
@@ -274,7 +281,6 @@ void draw()
             fill(0, 0, 0);
             circle(415, 250, 10);
         }
-        break;
       case "october":
       case "november":
       case "december":
