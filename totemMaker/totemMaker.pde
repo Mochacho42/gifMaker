@@ -3,12 +3,15 @@ import controlP5.*;
 ControlP5 cp5;
 
 TotemHair rect, tria;
+
+Table table;
 String birthday, month, name, size, familymember, department, shoesize;
 int lengthname;
 
 void setup()
 {
   size(650, 650);
+  table = new Table();
   
   cp5 = new ControlP5(this);
   
@@ -23,7 +26,9 @@ void setup()
   
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
   
-
+  table.addColumn("namelength");
+  table.addColumn("birthday");
+  table.addColumn("month");
  
 }
 
@@ -46,6 +51,11 @@ void Submit() {
   print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
 */
   lengthname = name.length();
+  TableRow newRow = table.addRow();
+  newRow.setInt("namelength", lengthname);
+  newRow.setString("birthday", birthday);
+  newRow.setString("month", month);
+  saveTable(table, "new.csv");
 }
  //<>//
 
@@ -183,7 +193,7 @@ void draw()
           }
           break;
         default:
-          print("Month Error");   
+//          print("Month Error");   
       case "july":
       case "august":
       case "september":
@@ -202,6 +212,7 @@ void draw()
             curve(385, 500, 395, 260, 475, 260, 485, 300);
             circle(415, 250, 10);
         }
+        break;
       case "october":
       case "november":
       case "december":
