@@ -72,7 +72,7 @@ void draw()
   }
 
 
-  // formes visage
+
   if(birthday != null) {
     switch (birthday) {
       case "monday": //hexagone
@@ -108,7 +108,7 @@ void draw()
   }
   
   //eyes 
-  
+
   if(month != null && birthday != null) {
     switch (month) {
       case "january" : 
@@ -205,15 +205,72 @@ void draw()
       case "october":
       case "november":
       case "december":
-        switch (birthday) {
-          default:
-           rect(100, 50, 100, 20);
-           rect(400, 50, 100, 20);
+        switch (birthday) { // ATTENTION !! Ces lignes rajoutaient des yeux en rectangle sur le "september" et peut etre sur d'autres
+//          default:
+//           rect(100, 50, 100, 20);
+//           rect(400, 50, 100, 20);
         }
       }
     }
+    
+    //nose
+/*    
+    if (month != null && birthday != null && department != null) {
+      {
+        if (department >= 1 && department <= 20) {
+          quad(285, 280, 300, 285, 350, 360, 290, 360); //pointy nose
+        }
+        else if (department >= 21 && department <= 41) {
+          arc(320, 300, 80, 90, 0, PI); //nose bow
+        }
+        else if (department >= 42 && department <= 62 || department == 975) {
+          beginShape();
+            vertex(320, 280);
+            vertex(355, 300);
+            vertex(355, 370);
+            vertex(320, 360);        //nose plane
+            vertex(285, 370);
+            vertex(285, 300);
+          endShape(CLOSE);
+        }
+        else if (department >= 63 && department <= 83) {
+         rect(310, 270, 30, 80);   //rectangular nose
+        }
+        else if (department >= 84 && department <= 90 || department == 95) {
+          ellipse(320, 320, 70, 70);     //round nose
+        }
+        else if (department == 91 || department == 971 || deparment == 976) {
+          beginShape();
+            vertex(320, 280);
+            vertex(355, 300);
+            vertex(355, 340);  //hexagon nose
+            vertex(320, 360);
+            vertex(285, 340);
+            vertex(285, 300);
+          endShape(CLOSE);
+        }
+        else if (department == 92 || department == 972) {
+          triangle(285, 375, 325, 285, 365, 375); //big nose
+        }
+        else if (department == 93 || department == 973) {
+          quad(290, 290, 350, 290, 310, 330, 330, 330); //cat nose
+        }
+        else if (department == 94 || department == 974) {
+          beginShape();
+            curveVertex(275, 425);
+            curveVertex(285, 415);
+            curveVertex(300, 395);
+            curveVertex(325, 325);   //rounded nose
+            curveVertex(350, 395);
+            curveVertex(365, 415);
+            curveVertex(375, 425);
+          endShape();
+        }
   }
-  
+}
+*/
+} 
+ 
 class TotemHair {
   float x1, y1, x2, y2, x3, y3;
 
