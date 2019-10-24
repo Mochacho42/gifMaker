@@ -4,17 +4,22 @@ ControlP5 cp5;
 
 Table table;
 TotemHair rect, tria;
-String birthday, month, name, Load_Data,Load_Data_Input, familymember, department, shoesize;
+String birthday, month, name, Load_Data,Load_Data_Input;
 int lengthname;
 
 void setup()
 {
   size(650, 650);
-  table = new Table();
-
+  
+  
   table = loadTable("new.csv", "header");
-
-
+  
+  if(table.getColumnCount() == 0) {
+    table.addColumn("name");
+    table.addColumn("namelength");
+    table.addColumn("birthday");
+    table.addColumn("month");  
+  }
 
   cp5 = new ControlP5(this);
 
@@ -29,23 +34,23 @@ void setup()
 
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
   cp5.addBang("Load_Data").setPosition(0, 320).setSize(100, 25);
-
-  table.addColumn("name");
-  table.addColumn("namelength");
-  table.addColumn("birthday");
-  table.addColumn("month");
+  
 
 }
 
 void Load_Data() {
+  
+    Load_Data_Input = cp5.get(Textfield.class, "Load_Data_Input").getText();
+    //Load_Data_Input = new String(Load_Data_Input);
+    //print(Load_Data_Input);
+    //TableRow result = table.findRow(Load_Data_Input, 0);
 
-  TableRow result = table.getRow(1);
-
-    //print(Load_Data);
-    birthday = result.getString("birthday");
-    month = result.getString("month");
-    lengthname = result.getInt("namelength");
-
+  TableRow result = table.findRow(Load_Data_Input, 0);
+  println(result.getString(0));
+    birthday = result.getString(2);
+    month = result.getString(3);
+    lengthname = result.getInt(1); 
+    //print(table.getStringColumn("name"));
     print(lengthname, month, birthday);
 
 }
@@ -61,11 +66,10 @@ void Submit() {
   month=cp5.get(Textfield.class, "month").getText();
   month = new String(month);
 
-  Load_Data_Input=cp5.get(Textfield.class, "Load_Data_Input").getText();
-  Load_Data_Input = new String(Load_Data_Input);
+
 
   lengthname = name.length();
-
+  print(name, lengthname, month,birthday);
   TableRow newRow = table.addRow();
   newRow.setString("name", name);
   newRow.setInt("namelength", lengthname);
@@ -174,7 +178,7 @@ void draw()
         break;
         case "april":
         case "may":
-        case "juny":
+        case "june":
           switch (birthday) {
             case "monday":
             case "wednesday":
