@@ -2,6 +2,32 @@ import controlP5.*;
 
 ControlP5 cp5;
 
+
+
+// COULEURS ALEATOIRES
+
+//forme de tete
+color r1 = color(random(255), random(255), random(255));
+
+//variable color r2 yeux
+int selected = (int)random(0, 4);
+int choicesR[] = {0, 224, 255, 35};
+int choicesG[] = {173, 0, 240, 31};
+int choicesB[] = {239, 139, 0, 32};
+color r2 = color(choicesR[selected], choicesG[selected], choicesB[selected]);
+
+//variable color r3 cheveux
+int select = (int)random(0, 6);
+int choiceR[] = {100, 124, 155, 135};
+int choiceG[] = {73, 100, 140, 131};
+int choiceB[] = {139, 39, 100, 132};
+color r3 = color(choiceG[select], choiceR[select], choiceB[select]);
+
+
+
+
+
+
 Table table;
 TotemHair rect, tria;
 String birthday, month, name, Load_Data,Load_Data_Input;
@@ -89,15 +115,19 @@ void draw()
   //hair
 
   if(1 <= lengthname && lengthname <= 3) {
+    fill(r3);
     tria = new TotemHair(100, 67, 550, 67, 325, 400);
   }
   if(4 <= lengthname && lengthname <= 6) {
+        fill(r3);
     tria = new TotemHair(150, 400, 500, 400, 325, 67);
   }
   if(7 <= lengthname && lengthname <= 9) {
+        fill(r3);
     rect =  new TotemHair(200, 50, 250, 300);
   }
   if(10 <= lengthname) {
+        fill(r3);
     rect =  new TotemHair(150, 138, 350, 250);
   }
 
@@ -106,6 +136,7 @@ void draw()
   if(birthday != null) {
     switch (birthday) {
       case "monday": //hexagone
+      fill(r1);
         beginShape();
         vertex(325, 130);
         vertex(495, 205);
@@ -116,21 +147,27 @@ void draw()
         endShape(CLOSE);
         break;
       case "tuesday": //cercle
+            fill(r1);
         ellipse(325, 325, 433, 433);
         break;
       case "wednesday": //losange
+            fill(r1);
         ellipse(325, 325, 600, 250);
         break;
       case "thursday": //losange
+            fill(r1);
         ellipse(325, 325, 250, 600);
         break;
       case "friday": //triangle équilaterale
+            fill(r1);
         triangle(100, 491, 550, 491, 325, 158);
         break;
       case "saturday": //triangle équilaterale °180
+            fill(r1);
         triangle(100, 158, 550, 158, 325, 491);
         break;
       case "sunday": //rectangle hauteur>largeur
+            fill(r1);
         rect(200, 138, 250, 433);
         break;
 
@@ -149,24 +186,28 @@ void draw()
           case "tuesday":
           case "wednesday":
           case "saturday":
+          fill(r2);
             circle(125, 200, 100);
             circle(125, 200, 5);
             circle(525, 200, 100);
             circle(525, 200, 5);
             break;
           case "thursday":
+                    fill(r2);
             circle(250, 200, 100);
             circle(250, 200, 5);
             circle(400, 200, 100);
             circle(400, 200, 5);
             break;
           case "friday":
+                    fill(r2);
             circle(250, 200, 100);
             circle(250, 200, 5);
             circle(400, 200, 100);
             circle(400, 200, 5);
             break;
           case "sunday":
+                    fill(r2);
             circle(200, 200, 100);
             circle(200, 200, 5);
             circle(450, 200, 100);
@@ -182,30 +223,35 @@ void draw()
           switch (birthday) {
             case "monday":
             case "wednesday":
+                      fill(r2);
               ellipse(200, 250, 100, 50);
               circle(200, 250, 5);
               ellipse(450, 250, 100, 50);
               circle(450, 250, 5);
               break;
             case "thursday":
+                      fill(r2);
               ellipse(250, 200, 100, 50);
               circle(250, 200, 5);
               ellipse(400, 200, 100, 50);
               circle(400, 200, 5);
               break;
             case "friday":
+                      fill(r2);
               ellipse(250, 200, 100, 50);
               circle(250, 200, 5);
               ellipse(400, 200, 100, 50);
               circle(400, 200, 5);
               break;
             case "sunday":
+                      fill(r2);
               ellipse(200, 200, 100, 50);
               circle(200, 200, 5);
               ellipse(450, 200, 100, 50);
               circle(450, 200, 5);
               break;
             default:
+                      fill(r2);
               ellipse(125, 200, 100, 50);
               circle(125, 200, 5);
               ellipse(525, 200, 100, 50);
@@ -221,6 +267,7 @@ void draw()
           case "monday":
           case "tuesday":
           case "wednesday":
+                    fill(r2);
             curve(175, 500, 185, 260, 265, 260, 275, 300);
             circle(205, 250, 10);
             curve(385, 500, 395, 260, 475, 260, 485, 300);
@@ -239,6 +286,7 @@ void draw()
           case "friday":
           case "saturday":
           case "sunday":
+                    fill(r2);
            rect(205, 250, 100, 20);
            rect(345, 250, 100, 20);
            break;
