@@ -1,35 +1,57 @@
 import controlP5.*;
 
 ControlP5 cp5;
-
+  
+Table table;
 TotemHair rect, tria;
-String birthday, month, name, size, familymember, department, shoesize;
+String birthday, month, name, Load_Data,Load_Data_Input, familymember, department, shoesize;
 int lengthname;
 
 void setup()
 {
   size(650, 650);
+  table = new Table();
+  
+  table = loadTable("new.csv", "header");
+  
+
   
   cp5 = new ControlP5(this);
   
   cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false); //hair
   cp5.addTextfield("birthday").setPosition(0,40).setSize(100,20).setAutoClear(false); //face
   cp5.addTextfield("month").setPosition(0,80).setSize(100,20).setAutoClear(false);  //eyes
-//  cp5.addTextfield("size").setPosition(0,120).setSize(100,20).setAutoClear(false);
+  cp5.addTextfield("Load_Data_Input").setPosition(0,120).setSize(100,20).setAutoClear(false);
 //  cp5.addTextfield("familymember").setPosition(0,160).setSize(100,20).setAutoClear(false);
 //  cp5.addTextfield("department").setPosition(0,200).setSize(100,20).setAutoClear(false);
 //  cp5.addTextfield("shoesize").setPosition(0,240).setSize(100,20).setAutoClear(false);
   
   
   cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
+  cp5.addBang("Load_Data").setPosition(0, 320).setSize(100, 25);
   
-
+  table.addColumn("name");
+  table.addColumn("namelength");
+  table.addColumn("birthday");
+  table.addColumn("month");
  
 }
 
+void Load_Data() {
+  
+  TableRow result = table.getRow(1);
+
+    //print(Load_Data);
+    birthday = result.getString("birthday");
+    month = result.getString("month");
+    lengthname = result.getInt("namelength");
+
+    print(lengthname, month, birthday);
+
+}
 
 void Submit() {
-  
+
   name=cp5.get(Textfield.class, "name").getText();
   name = new String(name);
   
@@ -38,23 +60,27 @@ void Submit() {
   
   month=cp5.get(Textfield.class, "month").getText();
   month = new String(month);
-  /*
-  size=cp5.get(Textfield.class, "size").getText();
-  familymember=cp5.get(Textfield.class, "familymember").getText();
-  department=cp5.get(Textfield.class, "department").getText();
-  shoesize=cp5.get(Textfield.class, "shoesize").getText();
-  print(name + "\n" + birthday + "\n" + birthtime + "\n" + size + "\n" + familymember + "\n" + department + "\n" + shoesize);
-*/
+ 
+  Load_Data_Input=cp5.get(Textfield.class, "Load_Data_Input").getText();
+  Load_Data_Input = new String(Load_Data_Input);
+  
   lengthname = name.length();
+  
+  TableRow newRow = table.addRow();
+  newRow.setString("name", name);
+  newRow.setInt("namelength", lengthname);
+  newRow.setString("birthday", birthday);
+  newRow.setString("month", month);
+  
+  saveTable(table, "data/new.csv");
+
 }
  //<>//
 
 void draw()
 {
-  
+
   background(150);
-  
-  //convert month, size, familymember, department, shoesize;
   
   //hair
 
@@ -183,7 +209,7 @@ void draw()
           }
           break;
         default:
-          print("Month Error");   
+          //print("Month Error");   
       case "july":
       case "august":
       case "september":
@@ -196,19 +222,22 @@ void draw()
             curve(385, 500, 395, 260, 475, 260, 485, 300);
             circle(415, 250, 10);
             break;
-          default:
-            curve(175, 500, 185, 260, 265, 260, 275, 300);
-            circle(205, 250, 10);
-            curve(385, 500, 395, 260, 475, 260, 485, 300);
-            circle(415, 250, 10);
+          
         }
       case "october":
       case "november":
       case "december":
         switch (birthday) {
-          default:
-           rect(100, 50, 100, 20);
-           rect(400, 50, 100, 20);
+          case "monday":
+          case "tuesday":
+          case "wednesday":
+          case "thursday":
+          case "friday":
+          case "saturday":
+          case "sunday":
+           rect(205, 250, 100, 20);
+           rect(345, 250, 100, 20);
+           break;
         }
       }
     }
