@@ -17,7 +17,7 @@ int choicesB[] = {239, 139, 0, 32};
 color r2 = color(choicesR[selected], choicesG[selected], choicesB[selected]);
 
 //variable color r3 cheveux
-int select = (int)random(0, 6);
+int select = (int)random(0, 4);
 int choiceR[] = {100, 124, 155, 135};
 int choiceG[] = {73, 100, 140, 131};
 int choiceB[] = {139, 39, 100, 132};
