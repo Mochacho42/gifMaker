@@ -2,7 +2,10 @@ import controlP5.*;
 
 ControlP5 cp5;
 
-
+Table table;
+TotemHair rect, tria;
+String birthday, month, name, Load_Data,Load_Data_Input;
+int lengthname;
 
 // COULEURS ALEATOIRES
 
@@ -23,18 +26,8 @@ int choiceG[] = {73, 100, 140, 131};
 int choiceB[] = {139, 39, 100, 132};
 color r3 = color(choiceG[select], choiceR[select], choiceB[select]);
 
-
-
-
-
-
-Table table;
-TotemHair rect, tria;
-String birthday, month, name, Load_Data,Load_Data_Input;
-int lengthname;
-
-void setup()
-{
+void setup()  {
+  
   size(650, 650);
   
   
@@ -52,37 +45,27 @@ void setup()
   cp5.addTextfield("name").setPosition(0,0).setSize(100,20).setAutoClear(false); //hair
   cp5.addTextfield("birthday").setPosition(0,40).setSize(100,20).setAutoClear(false); //face
   cp5.addTextfield("month").setPosition(0,80).setSize(100,20).setAutoClear(false);  //eyes
-  cp5.addTextfield("Load_Data_Input").setPosition(0,120).setSize(100,20).setAutoClear(false);
-//  cp5.addTextfield("familymember").setPosition(0,160).setSize(100,20).setAutoClear(false);
-//  cp5.addTextfield("department").setPosition(0,200).setSize(100,20).setAutoClear(false);
-//  cp5.addTextfield("shoesize").setPosition(0,240).setSize(100,20).setAutoClear(false);
+  cp5.addTextfield("Load_Data_Input").setPosition(0,120).setSize(100,20).setAutoClear(false); //choose a created totem
 
-
-  cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25);
-  cp5.addBang("Load_Data").setPosition(0, 320).setSize(100, 25);
+  cp5.addBang("Submit").setPosition(0, 280).setSize(100, 25); //sub,its the data for totem creation
+  cp5.addBang("Load_Data").setPosition(0, 320).setSize(100, 25); //load the chosen totem
   
 
 }
 
 void Load_Data() {
   
-    Load_Data_Input = cp5.get(Textfield.class, "Load_Data_Input").getText();
-    //Load_Data_Input = new String(Load_Data_Input);
-    //print(Load_Data_Input);
-    //TableRow result = table.findRow(Load_Data_Input, 0);
+  Load_Data_Input = cp5.get(Textfield.class, "Load_Data_Input").getText();
 
   TableRow result = table.findRow(Load_Data_Input, 0);
-  println(result.getString(0));
-    birthday = result.getString(2);
-    month = result.getString(3);
-    lengthname = result.getInt(1); 
-    //print(table.getStringColumn("name"));
-    print(lengthname, month, birthday);
-
+  birthday = result.getString(2);
+  month = result.getString(3);
+  lengthname = result.getInt(1); 
 }
 
 void Submit() {
 
+  // enter the data you want to create your totem
   name=cp5.get(Textfield.class, "name").getText();
   name = new String(name);
 
@@ -293,63 +276,6 @@ void draw()
         }
       }
     }
-
-    //nose
-/*
-    if (month != null && birthday != null && department != null) {
-      {
-        if (department >= 1 && department <= 20) {
-          quad(285, 280, 300, 285, 350, 360, 290, 360); //pointy nose
-        }
-        else if (department >= 21 && department <= 41) {
-          arc(320, 300, 80, 90, 0, PI); //nose bow
-        }
-        else if (department >= 42 && department <= 62 || department == 975) {
-          beginShape();
-            vertex(320, 280);
-            vertex(355, 300);
-            vertex(355, 370);
-            vertex(320, 360);        //nose plane
-            vertex(285, 370);
-            vertex(285, 300);
-          endShape(CLOSE);
-        }
-        else if (department >= 63 && department <= 83) {
-         rect(310, 270, 30, 80);   //rectangular nose
-        }
-        else if (department >= 84 && department <= 90 || department == 95) {
-          ellipse(320, 320, 70, 70);     //round nose
-        }
-        else if (department == 91 || department == 971 || deparment == 976) {
-          beginShape();
-            vertex(320, 280);
-            vertex(355, 300);
-            vertex(355, 340);  //hexagon nose
-            vertex(320, 360);
-            vertex(285, 340);
-            vertex(285, 300);
-          endShape(CLOSE);
-        }
-        else if (department == 92 || department == 972) {
-          triangle(285, 375, 325, 285, 365, 375); //big nose
-        }
-        else if (department == 93 || department == 973) {
-          quad(290, 290, 350, 290, 310, 330, 330, 330); //cat nose
-        }
-        else if (department == 94 || department == 974) {
-          beginShape();
-            curveVertex(275, 425);
-            curveVertex(285, 415);
-            curveVertex(300, 395);
-            curveVertex(325, 325);   //rounded nose
-            curveVertex(350, 395);
-            curveVertex(365, 415);
-            curveVertex(375, 425);
-          endShape();
-        }
-  }
-}
-*/
 }
 
 class TotemHair {
