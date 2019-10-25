@@ -78,7 +78,6 @@ void Submit() {
 
 
   lengthname = name.length();
-  print(name, lengthname, month,birthday);
   TableRow newRow = table.addRow();
   newRow.setString("name", name);
   newRow.setInt("namelength", lengthname);
@@ -311,24 +310,24 @@ void draw()
 class TotemHair {
   float x1, y1, x2, y2, x3, y3;
 
-  TotemHair(float x1_t, float y1_t, float x2_t, float y2_t) {
-    x1 = x1_t;
-    y1 = y1_t;
+  TotemHair(float x1, float y1, float x2, float y2) {
+    this.x1 = x1;
+    this.y1 = y1;
 
-    x2 = x2_t;
-    y2 = y2_t;
+    this.x2 = x2;
+    this.y2 = y2;
 
     rect(x1, y1, x2, y2);
   }
-  TotemHair(float x1_t, float y1_t, float x2_t, float y2_t, float x3_t, float y3_t) {
-    x1 = x1_t;
-    y1 = y1_t;
+  TotemHair(float x1, float y1, float x2, float y2, float x3, float y3) {
+    this.x1 = x1;
+    this.y1 = y1;
 
-    x2 = x2_t;
-    y2 = y2_t;
+    this.x2 = x2;
+    this.y2 = y2;
 
-    x3 = x3_t;
-    y3 = y3_t;
+    this.x3 = x3;
+    this.y3 = y3;
 
     triangle(x1, y1, x2, y2, x3, y3);
   }
